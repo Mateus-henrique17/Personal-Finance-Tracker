@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Dashboard Financeiro</title>
+  </head>
+  <body>
+    <main>
+      <h1>Dashboard Financeiro</h1>
+      <form class="form-content" id="transaction-form">
+        <h2>Cadastrar Transação</h2>
+        <p>Saldo atual: <span id="form-balance"></span></p>
+        <label for="title">Título da Transação:</label>
+        <input type="text" id="title" name="title" placeholder="Ex: Mercado" />
+
+        <div class="value-content">
+          <label for="currency">Valor da Transação:</label>
+          <select id="currency" name="currency">
+            <option value="BRL">BRL</option>
+          </select>
+          <input type="number" id="value" name="value" step="0.01" min="0" />
+        </div>
+
+        <label for="category">Categoria:</label>
+        <input
+          type="text"
+          name="category"
+          id="category"
+          placeholder="Ex: Casa"
+        />
+
+        <label for="type">Tipo de Transação:</label>
+        <input type="radio" id="income" name="type" value="income" />
+        <label for="income">Entrada</label>
+
+        <input type="radio" id="expense" name="type" value="expense" />
+        <label for="expense">Saída</label>
+
+        <label for="description">Informações Adicionais:</label>
+        <textarea id="description" name="description"></textarea>
+
+        <button type="submit" id="btn-cadastrar" class="btn-cadastrar">
+          Cadastrar
+        </button>
+      </form>
+    </main>
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>

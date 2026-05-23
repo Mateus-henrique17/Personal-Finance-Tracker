@@ -1,0 +1,229 @@
+/* --- RESET E ESTILOS GERAIS --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+body {
+  background-color: #f9f9f9;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 40px 20px;
+}
+
+/* O contêiner principal que segura o formulário e a seção de baixo */
+main {
+  width: 100%;
+  max-width: 450px; /* Largura idêntica para tudo */
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Espaço simples entre o formulário e a seção */
+}
+
+h1 {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #111;
+}
+
+/* --- SEÇÃO DO FORMULÁRIO --- */
+.form-content {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+}
+
+h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.25rem;
+  color: #444;
+}
+
+/* Saldo atual dentro do formulário */
+.form-content p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 1.25rem;
+}
+
+#form-balance {
+  font-weight: bold;
+}
+
+label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #666;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 1.25rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  background-color: #fff;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+  border-color: #1340d4;
+}
+
+.value-content {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.value-content label {
+  margin-bottom: 0.5rem;
+  width: 100%;
+}
+
+.value-content select {
+  width: 80px;
+  margin-bottom: 1.25rem;
+}
+
+.value-content input {
+  flex: 1;
+  margin-bottom: 1.25rem;
+}
+
+input[type="radio"] {
+  margin-right: 6px;
+  margin-bottom: 1.25rem;
+  accent-color: #1340d4;
+}
+
+input[type="radio"] + label {
+  display: inline-block;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+textarea {
+  height: 80px;
+  resize: none;
+  margin-bottom: 1.5rem;
+}
+
+.btn-cadastrar {
+  width: 100%;
+  padding: 12px;
+  font-weight: 500;
+  border: none;
+  border-radius: 4px;
+  background-color: #1f52f7;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.1s ease background-color;
+}
+
+.btn-cadastrar:hover {
+  background-color: #0032d8;
+}
+
+/* --- SEÇÃO DE TRANSAÇÕES (ABAIXO DO FORMULÁRIO) --- */
+#transactions-section {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+  width: 100%; /* Mesma largura do formulário */
+}
+
+.empty-message {
+  color: #7f8c8d;
+  font-style: italic;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+/* Lista simples vertical para os cards */
+.transactions-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 1.25rem;
+}
+
+/* Card em formato de linha compacta */
+.transaction-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 14px;
+  display: flex;
+  justify-content: space-between; /* Título na esquerda, Valor na direita */
+  align-items: center;
+  border-left: 4px solid #cbd5e1;
+}
+
+.card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.card-header h3 {
+  font-size: 0.95rem;
+  color: #1e293b;
+  font-weight: 600;
+}
+
+.card-category {
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.card-body {
+  text-align: right;
+}
+
+.card-value {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+/* Cores de status das bordas e valores */
+.transaction-card.card-income {
+  border-left-color: #2ecc71;
+}
+
+.transaction-card.card-expense {
+  border-left-color: #e74c3c;
+}
+
+.card-income .card-value {
+  color: #27ae60;
+}
+
+.card-expense .card-value {
+  color: #c0392b;
+}
+
+/* Esconde a badge duplicada de texto */
+.card-badge {
+  display: none;
+}
