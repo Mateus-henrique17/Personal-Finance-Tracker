@@ -63,6 +63,10 @@ export function renderTransactions() {
     `;
     const btnEditar = card.querySelector(".edit-button");
     btnEditar.addEventListener('click', () => {
+      window.scrollTo({
+        top: 100,
+        behavior: "smooth"
+      })
       editTransaction(transaction.id)
     })
     list.appendChild(card);
