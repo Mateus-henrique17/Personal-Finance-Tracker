@@ -1,13 +1,20 @@
-export function updateBalance(type, value) {
-  const currentBalance = parseFloat(localStorage.getItem("balance")) || 0;
-  let newBalance = currentBalance;
+export function updateBalance() {
+  const transactions = JSON.parse(localStorage.getItem('transactions')) || [];
+  
+  const newBalance = transactions.reduce((acc, t) => {
+    return t.type === 'income' ? acc + t.value : acc - t.value;
+  }, 0);
 
-  if (type === "income") {
-    newBalance = currentBalance + value;
-  } 
-  else {
-    newBalance = currentBalance - value;
-  }
+  localStorage.setItem("balance", newBalance);
+  return newBalance;
+}
+
+export function refreshBalanceFromHistory() {
+  const transactions = JSON.parse(localStorage.getItem('transactions')) || [];
+  
+  const newBalance = transactions.reduce((acc, t) => {
+    return t.type === 'income' ? acc + t.value : acc - t.value;
+  }, 0);
 
   localStorage.setItem("balance", newBalance);
   return newBalance;

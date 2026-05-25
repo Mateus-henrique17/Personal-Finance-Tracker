@@ -1,11 +1,10 @@
-export function saveTransaction(transaction, editingId) {
+export function saveTransaction(transaction) {
   const transactions = JSON.parse(localStorage.getItem("transactions")) || [];
 
-  if (editingId) {
-    const index = transactions.findIndex(t => t.id === editingId);
-    if (index !== -1) {
-      transactions[index] = { ...transaction, id: editingId };
-    }
+  const index = transactions.findIndex(t => t.id === transaction.id);
+  
+  if (index !== -1) {
+    transactions[index] = transaction;
   } else {
     transactions.push(transaction);
   }
@@ -13,7 +12,7 @@ export function saveTransaction(transaction, editingId) {
   localStorage.setItem("transactions", JSON.stringify(transactions));
   
   setTimeout(() => {
-    alert(editingId ? "Transaction updated!" : "Transaction saved!");
+    alert(index !== -1 ? "Transaction updated!" : "Transaction saved!");
   }, 50);
   
   return transactions;

@@ -12,8 +12,7 @@ export function renderTransactions() {
 
   const formBalanceElement = document.getElementById("form-balance");
   if (formBalanceElement) {
-    formBalanceElement.innerHTML = `<strong>${formattedBalance}</strong>`;
-    formBalanceElement.style.color = "#27ae60";
+    formBalanceElement.innerHTML = `<strong style="color: #27ae60;">${formattedBalance}</strong>`;
   }
 
   let existingSection = document.getElementById("transactions-section");
@@ -56,19 +55,20 @@ export function renderTransactions() {
         <span class="card-category">${transaction.category}</span>
       </div>
       <div class="card-body">
-      <button class= "edit-button" data-id="${transaction.id}">Editar</button>
-      <p class="card-value">${signal} ${formattedValue}</p>
+        <button class="edit-button" data-id="${transaction.id}">Editar</button>
+        <p class="card-value">${signal} ${formattedValue}</p>
         <span class="card-badge">${transaction.type === "expense" ? "Despesa" : "Receita"}</span>
       </div>
     `;
+
     const btnEditar = card.querySelector(".edit-button");
-    btnEditar.addEventListener('click', () => {
+    btnEditar.addEventListener("click", () => {
       window.scrollTo({
         top: 100,
-        behavior: "smooth"
-      })
-      editTransaction(transaction.id)
-    })
+        behavior: "smooth",
+      });
+      editTransaction(transaction.id);
+    });
     list.appendChild(card);
   });
 
