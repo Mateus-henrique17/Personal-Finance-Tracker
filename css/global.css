@@ -5,6 +5,8 @@
   --accent-color-hover:#0032d8;
   --edit-button:#1e3a8a;
   --edit-button-hover:#1e40af;
+  --delete-button: grey;
+  --delete-button-hover: grey;
   --input-focus: #1340d4;
   --input-border: 1px solid #e2e8f0;
   --income-accent:#27ae60;

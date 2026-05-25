@@ -1,4 +1,5 @@
 import { editTransaction } from "../edit/editTransaction.js";
+import { deleteTransaction } from "../delete/deleteTransaction.js";
 
 export function renderTransactions() {
   const transactions = JSON.parse(localStorage.getItem("transactions")) || [];
@@ -56,6 +57,7 @@ export function renderTransactions() {
       </div>
       <div class="card-body">
         <button class="edit-button" data-id="${transaction.id}">Editar</button>
+        <button class="delete-button" data-id="${transaction.id}">Desfazer</button>
         <p class="card-value">${signal} ${formattedValue}</p>
         <span class="card-badge">${transaction.type === "expense" ? "Despesa" : "Receita"}</span>
       </div>
@@ -69,6 +71,12 @@ export function renderTransactions() {
       });
       editTransaction(transaction.id);
     });
+
+    const btnDelete = card.querySelector(".delete-button");
+    btnDelete.addEventListener("click", () =>{
+      window.confirm('Você tem certeza?')
+      deleteTransaction(transaction.id)
+    })
     list.appendChild(card);
   });
 
